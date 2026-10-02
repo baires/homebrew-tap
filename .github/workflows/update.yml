@@ -1,0 +1,29 @@
+name: Update yz
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: update-yz
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Generate formula
+        run: python3 scripts/update.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Commit updated formula
+        run: |
+          if git diff --quiet -- Formula/yz.rb; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/yz.rb
+          git commit -m "chore: update yz formula"
+          git push
