@@ -1,7 +1,6 @@
 class Yz < Formula
   desc "Instant file sharing via Cloudflare R2"
   homepage "https://github.com/baires/yz"
-  version "0.1.1"
   license "Apache-2.0"
 
   on_macos do

@@ -21,7 +21,6 @@ lines = [
     "class Yz < Formula",
     '  desc "Instant file sharing via Cloudflare R2"',
     '  homepage "https://github.com/baires/yz"',
-    f'  version "{tag[1:]}"',
     '  license "Apache-2.0"',
     "",
 ]
