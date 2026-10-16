@@ -5,25 +5,25 @@ class Yz < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/baires/yz/releases/download/v0.4.0/yz_v0.4.0_darwin_arm64"
-      sha256 "dab72e0a1cdd61b58fa96599d047dc18fbb53660499f972aba9b22103416ed1d"
+      url "https://github.com/baires/yz/releases/download/v0.5.0/yz_v0.5.0_darwin_arm64"
+      sha256 "145a2b044ffa7b122d11c8ee85cf145d65661ab3e806c6d3f34f19c15559d2b2"
     end
 
     on_intel do
-      url "https://github.com/baires/yz/releases/download/v0.4.0/yz_v0.4.0_darwin_amd64"
-      sha256 "7dd99ee6b429dc168a31155cab4a34729138e8f2354ec2fc718055708a5a1005"
+      url "https://github.com/baires/yz/releases/download/v0.5.0/yz_v0.5.0_darwin_amd64"
+      sha256 "a3f44c15c192afd56c32a65e7239224f17031408a4b6a2b947666e5388ab076d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/baires/yz/releases/download/v0.4.0/yz_v0.4.0_linux_arm64"
-      sha256 "b047f2154fe43be69c5c3dd208a577e2d2e84dd8c644242ee9fcaee7bf6a701d"
+      url "https://github.com/baires/yz/releases/download/v0.5.0/yz_v0.5.0_linux_arm64"
+      sha256 "42a462931cfa227bf301b30650f63203543f2178e3818c258182e56def3566c7"
     end
 
     on_intel do
-      url "https://github.com/baires/yz/releases/download/v0.4.0/yz_v0.4.0_linux_amd64"
-      sha256 "de212d86bc3499b511b327630c185cad82b757a8a30049b2c466391f5b5da278"
+      url "https://github.com/baires/yz/releases/download/v0.5.0/yz_v0.5.0_linux_amd64"
+      sha256 "d6c9d933955823b3874634b82de3e1809a10347edbc8c4f6e21cb33bf6c0a3a8"
     end
   end
 
