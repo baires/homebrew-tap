@@ -1,5 +1,7 @@
 name: Update yz
 on:
+  repository_dispatch:
+    types: [yz-release]
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
@@ -17,10 +19,16 @@ jobs:
         run: python3 scripts/update.py
         env:
           GH_TOKEN: ${{ github.token }}
+          YZ_TAG: ${{ github.event_name == 'repository_dispatch' && github.event.client_payload.tag || '' }}
       - name: Commit updated formula
         run: |
           if git diff --quiet -- Formula/yz.rb; then
             exit 0
+          fi
+          count="$(grep -c '^      sha256 "' Formula/yz.rb || true)"
+          if [ "$count" -ne 4 ]; then
+            echo "Formula/yz.rb is incomplete; leaving it uncommitted"
+            exit 1
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

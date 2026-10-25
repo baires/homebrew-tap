@@ -9,6 +9,8 @@ brew install baires/tap/yz
 Supports macOS and Linux on Intel and ARM64. Downloads the upstream
 release binary and verifies its SHA-256 checksum.
 
-The update workflow checks for new stable releases hourly. It can also
-be run manually from GitHub Actions. All four assets and valid checksums
-must be present before the formula is updated.
+A yz GitHub Release sends a `yz-release` repository dispatch, which
+updates `Formula/yz.rb` and pushes the change to `main` immediately.
+The hourly check is the backup, and the workflow can still be run
+manually. All four assets and valid checksums must be present;
+otherwise the run fails and a later check retries.
