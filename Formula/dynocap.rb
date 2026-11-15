@@ -20,7 +20,7 @@ class Dynocap < Formula
     end
     prefix.install Dir["*"]
     system "xattr", "-dr", "com.apple.quarantine", prefix
-    system "codesign", "--sign", "-"
+    system "codesign", "--sign", "-",
            "--entitlements", prefix/"entitlements/dynocap.entitlements",
            "--force", prefix/"bin/dynocap"
   end
