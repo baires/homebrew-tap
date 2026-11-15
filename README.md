@@ -8,6 +8,9 @@ Formulae for tools published by [baires](https://github.com/baires).
 brew install baires/tap/dynocap
 ```
 
+On Homebrew 6 that command trusts this formula. To use the short name
+`dynocap` for a later upgrade, run `brew trust --formula baires/tap/dynocap`.
+
 Apple Silicon and macOS Ventura or newer. The formula downloads the versioned
 release archive, checks its SHA-256, and re-signs the CLI on your Mac. Intel
 is refused. There is no bottle.
