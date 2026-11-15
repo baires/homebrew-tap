@@ -1,0 +1,41 @@
+name: Update dynocap
+on:
+  repository_dispatch:
+    types: [dynocap-release]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Stable dynocap tag (vX.Y.Z). Empty uses the latest release.
+        required: false
+        type: string
+        default: ""
+permissions:
+  contents: write
+concurrency:
+  group: update-dynocap
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Generate formula
+        run: python3 scripts/update-dynocap.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DYNOCAP_TAG: ${{ github.event.client_payload.tag || github.event.inputs.tag }}
+      - name: Commit updated formula
+        run: |
+          if git diff --quiet -- Formula/dynocap.rb; then
+            exit 0
+          fi
+          count="$(grep -c '^  sha256 "' Formula/dynocap.rb || true)"
+          if [ "$count" -ne 1 ]; then
+            echo "Formula/dynocap.rb is incomplete; leaving it uncommitted"
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/dynocap.rb
+          git commit -m "chore: update dynocap formula"
+          git push

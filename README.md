@@ -1,4 +1,26 @@
-# Homebrew tap for yz
+# Homebrew tap
+
+Formulae for tools published by [baires](https://github.com/baires).
+
+## dynocap
+
+```sh
+brew install baires/tap/dynocap
+```
+
+Apple Silicon and macOS Ventura or newer. The formula downloads the versioned
+release archive, checks its SHA-256, and re-signs the CLI on your Mac. Intel
+is refused. There is no bottle.
+
+A dynocap GitHub Release sends a `dynocap-release` repository dispatch, which
+updates `Formula/dynocap.rb` and pushes the change to `main`. The workflow can
+also be run manually. The versioned archive and its `.sha256` file must both
+be present; otherwise the run fails.
+
+The formula checked in before the first release points at `v0.0.0` so the
+install name exists. The first stable release replaces that URL and checksum.
+
+## yz
 
 Install:
 
