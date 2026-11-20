@@ -3,8 +3,8 @@
 class Dynocap < Formula
   desc "Local Linux microVM runtime for AI agents on macOS"
   homepage "https://github.com/baires/dynocap"
-  url "https://github.com/baires/dynocap/releases/download/v0.1.1/dynocap-v0.1.1-darwin-arm64.tar.gz"
-  sha256 "550f9b670bcd5ac545b38cb62014b3738bbfa6fe8b8f16544bdebb3315b28633"
+  url "https://github.com/baires/dynocap/releases/download/v0.3.0/dynocap-v0.3.0-darwin-arm64.tar.gz"
+  sha256 "c2a936c380fe628fce6217f0031c6249a5c4f3f67fc525e26c32904eeb51ea7c"
   license "Apache-2.0"
 
   depends_on "e2fsprogs"
